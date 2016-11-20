@@ -1,0 +1,36 @@
+﻿<div class="row"id="login_view">
+    <div id="todo"></div>
+</div>
+@section scripts{
+    <script>
+        //$(document)
+        //    .ready(function() {
+        //        alert("TEST");
+        //    });
+
+        var Todo = Backbone.Model.extend({
+            defaults: {
+                task: 'Task 2',
+                done: false
+            }
+        });
+
+        var my_todo = new Todo();
+
+        var TodoView = Backbone.View.extend({
+            initialize: function() {
+                this.render();
+            },
+            template: _.template('<%= task %> | <%= done %>'),
+            render: function() {
+                //this.$el.html(this.model.get('task') + ' | ' + ' | ' + this.model.get('done'));
+                this.$el.html(this.template(this.model.toJSON()));
+                return this;
+            }
+        });
+
+        var todoView = new TodoView({ model: my_todo });
+        todoView.render();
+        $('#todo').append(todoView.el);
+    </script>
+}

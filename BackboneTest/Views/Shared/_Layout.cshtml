@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+   
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/underscore.js"></script>
+    <script src="~/Scripts/backbone.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+@*<script type="text/template" class="blogs-list-template">
+        <td><span class="author"><%= author %></span></td>
+        <td><span class="title"><%= title %></span></td>
+        <td><span class="url"><%= url %></span></td>
+        <td>
+            <button class="btn btn-warning edit-blog">Edit</button>
+            <button class="btn btn-warning edit-danger">Delete</button>
+        </td>
+    </script>*@
+    <!-- Application logic -->
+    <script src="~/Model/Item.js"></script>
+    <script src="~/Model/Skill.js"></script>
+
+    <!-- Views -->
+    <script src="~/View/SkillView.js"></script>
+    <script src="~/View/AppView.js"></script>
+    
+
+@RenderSection("scripts", required: false)
+</body>
+</html>
